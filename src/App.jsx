@@ -81,7 +81,7 @@ function LandingPage({ onLogin }) {
       <nav className="px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Building2 size={28} className="text-amber-400" />
-          <span className="text-2xl font-bold">FlatMate <span className="text-amber-400">India</span></span>
+          <span className="text-2xl font-bold">FlatMate</span>
         </div>
         <button onClick={onLogin} className="bg-white text-blue-700 font-semibold px-5 py-2 rounded-xl hover:bg-blue-50 transition">Sign In</button>
       </nav>
@@ -162,7 +162,7 @@ function LoginPage({ preRole, onSuccess }) {
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
         <div className="flex items-center gap-2 mb-6">
           <Building2 size={24} className="text-blue-600" />
-          <span className="text-xl font-bold text-gray-800">FlatMate <span className="text-blue-600">India</span></span>
+          <span className="text-xl font-bold text-gray-800">FlatMate</span>
         </div>
         <h2 className="text-2xl font-bold text-gray-900 mb-1">Sign In</h2>
         <p className="text-gray-500 text-sm mb-6">Enter your details to continue</p>
@@ -1518,7 +1518,7 @@ export default function App() {
             <div className="flex items-center gap-2">
               {navStack.length > 0 && <button onClick={goBack} className="mr-1 text-gray-500 hover:text-gray-800"><ArrowLeft size={20} /></button>}
               <Building2 size={20} className="text-blue-600" />
-              <span className="font-bold text-gray-800">FlatMate <span className="text-blue-600">India</span></span>
+              <span className="font-bold text-gray-800">FlatMate</span>
             </div>
             <div className="flex items-center gap-3">
               <button onClick={() => navigate("notifications")} className="relative text-gray-400 hover:text-gray-700">
