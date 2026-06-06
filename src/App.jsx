@@ -13,13 +13,18 @@ const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
 async function apiFetch(path, options = {}, token = null) {
   const headers = { "Content-Type": "application/json" };
   if (token) headers["Authorization"] = `Bearer ${token}`;
-  const res = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    headers: { ...headers, ...(options.headers || {}) },
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
-  return data;
+  try {
+    const res = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      headers: { ...headers, ...(options.headers || {}) },
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
+    return data;
+  } catch (err) {
+    if (err instanceof TypeError) throw new Error("Cannot connect to server. Please try again.");
+    throw err;
+  }
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
